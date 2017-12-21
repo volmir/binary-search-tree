@@ -1,6 +1,6 @@
 <?php
 
-use PVV\Application;
+use Tree\Application;
  
 $loader = require( __DIR__ . '/vendor/autoload.php' );
 

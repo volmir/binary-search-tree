@@ -1,10 +1,10 @@
 {
-    "name": "volmir/binary-tree",
+    "name": "volmir/binary-search-tree",
     "description": "Operations with binary tree in console",
-    "homepage": "https://github.com/volmir/binary-tree",    
+    "homepage": "https://github.com/volmir/binary-search-tree",    
     "autoload": {
         "psr-4": {
-            "PVV\\": "src/"
+            "Tree\\": "src/"
         }
     }
 }

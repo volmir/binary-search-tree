@@ -1,15 +1,11 @@
 <?php
 
-namespace PVV\helpers;
+namespace Tree\helpers;
 
-use PVV\models\Tree;
-use PVV\helpers\TreeVisitor;
+use Tree\models\BinaryTree;
+use Tree\helpers\ITreeVisitor;
 
-/** 
- * 
- * @package PVV\helpers
- */
-class HeightPrinter implements TreeVisitor {
+class DepthPrinter implements ITreeVisitor {
     
     /**
      *
@@ -27,13 +23,16 @@ class HeightPrinter implements TreeVisitor {
 
     /**
      * 
-     * @param Tree $node
+     * @param BinaryTree $node
      * @param int $pos
      */
-    public function visit(Tree $node, int $pos) {
+    public function visit(BinaryTree $node, int $pos) {
         if ($pos > $this->height) {
             $this->height = $pos;
         }
     }
 
+    public function finish() {
+        echo PHP_EOL . 'Tree height is: ' . $this->getHeight() . PHP_EOL;
+    }
 }

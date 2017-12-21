@@ -1,8 +1,10 @@
-BinaryTree
+BinarySearchTree
 ===============
 
 Operations with binary tree (in console):
- - calculate tree height
+ - find minimum and maximum
+ - calculate tree depth
+ - find path to tree node
  - sort binary tree
  - show tree structure
 
@@ -10,7 +12,7 @@ Operations with binary tree (in console):
 
 ```sh
 $ cd /path/to/htdocs
-$ git clone https://github.com/volmir/binary-tree.git
+$ git clone https://github.com/volmir/binary-search-tree.git
 $ composer install
 $ php index.php
 ```

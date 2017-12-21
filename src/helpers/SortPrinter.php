@@ -1,23 +1,22 @@
 <?php
 
-namespace PVV\helpers;
+namespace Tree\helpers;
 
-use PVV\models\Tree;
-use PVV\helpers\TreeVisitor;
+use Tree\models\BinaryTree;
+use Tree\helpers\TreeVisitor;
 
-/** 
- * 
- * @package PVV\helpers
- */
-class SortPrinter implements TreeVisitor {
+class SortPrinter implements ITreeVisitor {
 
     /**
      * 
-     * @param Tree $node
+     * @param BinaryTree $node
      * @param int $pos
      */
-    public function visit(Tree $node, int $pos) {
-        echo " " . $node->key . PHP_EOL;
+    public function visit(BinaryTree $node, int $pos) {
+        echo ' ' . $node->key . PHP_EOL;
     }
-
+    
+    public function start() {
+        echo PHP_EOL . 'Show sorted tree (in ascending order):' . PHP_EOL;
+    }
 }
