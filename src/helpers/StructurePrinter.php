@@ -20,6 +20,6 @@ class StructurePrinter implements ITreeVisitor {
     }
 
     public function start() {
-        echo PHP_EOL . 'Show tree structure:' . PHP_EOL;
+        echo PHP_EOL . 'Вывод структуры дерева:' . PHP_EOL;
     }    
 }

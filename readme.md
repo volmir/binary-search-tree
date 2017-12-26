@@ -14,6 +14,11 @@ Operations with binary tree (in console):
 $ cd /path/to/htdocs
 $ git clone https://github.com/volmir/binary-search-tree.git
 $ composer install
-$ php index.php
 ```
 
+### Run
+
+```sh
+$ php index.php
+$ php tests.php
+```

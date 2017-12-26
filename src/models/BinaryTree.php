@@ -70,7 +70,7 @@ class BinaryTree {
     public function find($key, ITreeVisitor $visitor) {
         if ($key == $this->key) {
             $visitor->visit($this);
-            return;
+            return $this;
         }
         if ($key < $this->key && $this->left != null) {
             $visitor->visit($this);

@@ -57,7 +57,7 @@ class PathPrinter implements ITreeVisitor {
     }    
     
     public function finish() {
-        echo PHP_EOL . 'Find path from "Node ' . $this->from . '" to "Node ' . $this->to . '":' . PHP_EOL;
+        echo PHP_EOL . 'Нахождение пути из "Узел ' . $this->from . '" в "Узел ' . $this->to . '":' . PHP_EOL;
         
         if (count($this->path) && $this->from && $this->to) {
             $path = [];
@@ -77,10 +77,10 @@ class PathPrinter implements ITreeVisitor {
             if (count($path) && $end) {
                 echo implode(' -> ', $path) . PHP_EOL;
             } else {
-                echo 'Path not found' . PHP_EOL;
+                echo 'Путь не найден' . PHP_EOL;
             }
         } else {
-            echo 'Nothing found' . PHP_EOL;
+            echo 'Ничего не найдено' . PHP_EOL;
         }
     }
 }

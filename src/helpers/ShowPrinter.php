@@ -33,9 +33,9 @@ class ShowPrinter implements ITreeVisitor {
 
     public function finish() {
         if ($this->type == 'maximum') {
-            echo PHP_EOL . 'Maximum value: ' . $this->node->key . PHP_EOL;
+            echo PHP_EOL . 'Максимальное значение: ' . $this->node->key . PHP_EOL;
         } elseif ($this->type == 'minimum') {
-            echo PHP_EOL . 'Minimum value: ' . $this->node->key . PHP_EOL;
+            echo PHP_EOL . 'Минимальное значение: ' . $this->node->key . PHP_EOL;
         }
     }
 }

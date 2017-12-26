@@ -17,6 +17,6 @@ class SortPrinter implements ITreeVisitor {
     }
     
     public function start() {
-        echo PHP_EOL . 'Show sorted tree (in ascending order):' . PHP_EOL;
+        echo PHP_EOL . 'Вывод отсортированного дерева (значения по возрастанию):' . PHP_EOL;
     }
 }

@@ -33,6 +33,6 @@ class DepthPrinter implements ITreeVisitor {
     }
 
     public function finish() {
-        echo PHP_EOL . 'Tree height is: ' . $this->getHeight() . PHP_EOL;
+        echo PHP_EOL . 'Глубина дерева: ' . $this->getHeight() . PHP_EOL;
     }
 }
