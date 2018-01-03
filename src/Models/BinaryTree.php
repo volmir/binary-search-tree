@@ -1,8 +1,8 @@
 <?php
 
-namespace Tree\models;
+namespace Tree\Models;
 
-use Tree\helpers\ITreeVisitor;
+use Tree\Helpers\ITreeVisitor;
  
 /** 
  * 

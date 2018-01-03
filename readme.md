@@ -22,3 +22,9 @@ $ composer install
 $ php index.php
 $ php tests.php
 ```
+
+### Tests
+
+```sh
+$ phpunit --bootstrap vendor/autoload.php ./tests/
+```

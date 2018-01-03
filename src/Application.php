@@ -2,12 +2,12 @@
 
 namespace Tree;
 
-use Tree\models\BinaryTree;
-use Tree\helpers\ShowPrinter;
-use Tree\helpers\DepthPrinter;
-use Tree\helpers\SortPrinter;
-use Tree\helpers\StructurePrinter;
-use Tree\helpers\PathPrinter;
+use Tree\Models\BinaryTree;
+use Tree\Helpers\ShowSearch;
+use Tree\Helpers\DepthSearch;
+use Tree\Helpers\SortSearch;
+use Tree\Helpers\StructureSearch;
+use Tree\Helpers\PathSearch;
 
 class Application {
     
@@ -18,11 +18,12 @@ class Application {
     private $tree;
 
     public function run() {
-        $this->init();
+        $this->setup();
+        $this->search();
         $this->show();
     }
 
-    protected function init() {
+    protected function setup() {
         $this->tree = new BinaryTree(17);
         $this->tree->insert(new BinaryTree(34));
         $this->tree->insert(new BinaryTree(7));
@@ -38,37 +39,42 @@ class Application {
         $this->tree->insert(new BinaryTree(38));
     }
 
-    protected function show() {
-        $showPrinter = new ShowPrinter();
-        $showPrinter->setType('maximum');
-        $this->tree->maximum($showPrinter);
-        $showPrinter->finish();
+    protected function search() {
+        $this->maximumSearch = new ShowSearch();
+        $this->maximumSearch->setType('maximum');
+        $this->tree->maximum($this->maximumSearch);
+                
+        $this->minimumSearch = new ShowSearch();
+        $this->minimumSearch->setType('minimum');
+        $this->tree->minimum($this->minimumSearch);
         
-        $showPrinter = new ShowPrinter();
-        $showPrinter->setType('minimum');
-        $this->tree->minimum($showPrinter);
-        $showPrinter->finish();
-        
-        $depthPrinter = new DepthPrinter();
-        $this->tree->traverse($depthPrinter);
-        $depthPrinter->finish();
+        $this->DepthSearch = new DepthSearch();
+        $this->tree->traverse($this->DepthSearch);
 
         $node_from = 17;
         $node_to = 16;
-        $pathPrinter = new PathPrinter();
-        $pathPrinter->setPath($node_from, $node_to);
-        $this->tree->find($node_to, $pathPrinter);        
-        $pathPrinter->finish();
+        $this->PathSearch = new PathSearch();
+        $this->PathSearch->setPath($node_from, $node_to);
+        $this->tree->find($node_to, $this->PathSearch);        
         
-        $sortPrinter = new SortPrinter();
-        $sortPrinter->start();
-        $this->tree->traverse($sortPrinter);
+        $this->SortSearch = new SortSearch();
+        $this->SortSearch->start();
+        $this->tree->traverse($this->SortSearch);
 
-        $structurePrinter = new StructurePrinter();
-        $structurePrinter->start();
-        $this->tree->traverse($structurePrinter);
+        $this->StructureSearch = new StructureSearch();
+        $this->StructureSearch->start();
+        $this->tree->traverse($this->StructureSearch);
         
         $this->tree->remove(3);
     }
 
+    protected function show() {
+        $this->maximumSearch->finish();
+        $this->minimumSearch->finish();
+        $this->DepthSearch->finish();
+        $this->PathSearch->finish();
+        $this->SortSearch->finish();
+        $this->StructureSearch->finish();
+    }
+    
 }

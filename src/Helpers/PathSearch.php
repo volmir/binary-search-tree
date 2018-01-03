@@ -1,11 +1,16 @@
 <?php
 
-namespace Tree\helpers;
+namespace Tree\Helpers;
 
-use Tree\models\BinaryTree;
-use Tree\helpers\ITreeVisitor;
+use Tree\Models\BinaryTree;
+use Tree\Helpers\ITreeVisitor;
+use Tree\Logs\Logger;
+use Tree\Logs\Printer;
 
-class PathPrinter implements ITreeVisitor {
+class PathSearch implements ITreeVisitor {
+    
+    use Logger;
+    use Printer;     
     
     /**
      *
@@ -57,7 +62,8 @@ class PathPrinter implements ITreeVisitor {
     }    
     
     public function finish() {
-        echo PHP_EOL . 'Нахождение пути из "Узел ' . $this->from . '" в "Узел ' . $this->to . '":' . PHP_EOL;
+        $this->addMessage('');
+        $this->addMessage('Нахождение пути из "Узел ' . $this->from . '" в "Узел ' . $this->to . '":');
         
         if (count($this->path) && $this->from && $this->to) {
             $path = [];
@@ -75,12 +81,14 @@ class PathPrinter implements ITreeVisitor {
                 }
             }
             if (count($path) && $end) {
-                echo implode(' -> ', $path) . PHP_EOL;
+                $this->addMessage(implode(' -> ', $path));
             } else {
-                echo 'Путь не найден' . PHP_EOL;
+                $this->addMessage('Путь не найден');
             }
         } else {
-            echo 'Ничего не найдено' . PHP_EOL;
+            $this->addMessage('Ничего не найдено');
         }
+        
+        $this->setMessages($this->getMessages())->showMessages();
     }
 }

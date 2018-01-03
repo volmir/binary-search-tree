@@ -1,8 +1,8 @@
 <?php
 
-namespace Tree\helpers;
+namespace Tree\Helpers;
 
-use Tree\models\BinaryTree;
+use Tree\Models\BinaryTree;
 
 interface ITreeVisitor {
 

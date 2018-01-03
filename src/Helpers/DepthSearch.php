@@ -1,11 +1,16 @@
 <?php
 
-namespace Tree\helpers;
+namespace Tree\Helpers;
 
-use Tree\models\BinaryTree;
-use Tree\helpers\ITreeVisitor;
+use Tree\Models\BinaryTree;
+use Tree\Helpers\ITreeVisitor;
+use Tree\Logs\Logger;
+use Tree\Logs\Printer;
 
-class DepthPrinter implements ITreeVisitor {
+class DepthSearch implements ITreeVisitor {
+    
+    use Logger;
+    use Printer;    
     
     /**
      *
@@ -33,6 +38,8 @@ class DepthPrinter implements ITreeVisitor {
     }
 
     public function finish() {
-        echo PHP_EOL . 'Глубина дерева: ' . $this->getHeight() . PHP_EOL;
+        $this->addMessage('');
+        $this->addMessage('Глубина дерева: ' . $this->getHeight());
+        $this->setMessages($this->getMessages())->showMessages();
     }
 }

@@ -2,8 +2,8 @@
 
 set_time_limit(600);
 
-use Tree\models\BinaryTree;
-use Tree\helpers\PathPrinter;
+use Tree\Models\BinaryTree;
+use Tree\Helpers\PathSearch;
 
 $loader = require( __DIR__ . '/vendor/autoload.php' );
 
@@ -85,14 +85,14 @@ echo PHP_EOL . '----------------------------------------------------------------
 
 echo ' - бинарное дерево ' . "\t\t\t";
 $node_from = $middle;
-$pathPrinter = new PathPrinter();
+$PathSearch = new PathSearch();
 foreach ($iterations as $iteration) {
     $start = microtime(true);
     for ($i = 0; $i <= $iteration; $i++) {
         $node_to = rand($min, $max);
-        $pathPrinter->start();
-        $pathPrinter->setPath($node_from, $node_to);
-        $tree->find($node_to, $pathPrinter);
+        $PathSearch->start();
+        $PathSearch->setPath($node_from, $node_to);
+        $tree->find($node_to, $PathSearch);
     }
     echo substr((microtime(true) - $start), 0, 6) . "\t";
 }
